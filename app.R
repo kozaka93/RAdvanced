@@ -6,11 +6,12 @@
 #
 #    http://shiny.rstudio.com/
 #
-slowa <- read.csv("C:/Users/Anna Kozak/Desktop/shiny_app_csv/funkcje_czestosc.csv", row.names = NULL)
-
-
+#setwd("C:/Users/Anna Kozak/Desktop/shiny_app_csv/app/")
+slowa_funckje <- read.csv("funkcje_czestosc.csv", row.names = NULL)
+slowa_pakiety <- read.csv("biblioteki_czestosc.csv", row.names = NULL)
 
 library(shiny)
+library(RColorBrewer)
 
 # Define UI for application that draws a histogram
 ui <- navbarPage("Analiza",
@@ -22,7 +23,14 @@ ui <- navbarPage("Analiza",
                             ),
                             mainPanel(plotOutput("plot",  width = "100%"))
                           )),
-                 tabPanel("Tab2"
+                 tabPanel("Tab2",
+                          sidebarLayout(
+                            sidebarPanel(
+                              sliderInput("ile1", "Maksymalna liczba słów:", min=1, max=244, value=100)
+                              
+                            ),
+                            mainPanel(plotOutput("plot1",  width = "100%"))
+                          )
                          
                           ),
                  tabPanel("Tab3"
@@ -49,12 +57,24 @@ server <- function(input, output) {
      
     
      ile_slow <- input$ile #parametr podawany przez uzytkownika
-     slowa <- slowa[1:ile_slow,]
+     slowa <- slowa_funckje[1:ile_slow,]
      wordcloud::wordcloud(words = slowa[,1], freq = slowa[,3], random.order = FALSE, colors=brewer.pal(8, "Accent"))
      },
      
      height = 700, width = 800
      )
+   
+   output$plot1 <- renderPlot({
+     # generate bins based on input$bins from ui.R
+     
+     
+     ile_slow1 <- input$ile1 #parametr podawany przez uzytkownika
+     slowa1 <- slowa_pakiety[1:ile_slow1,]
+     wordcloud::wordcloud(words = slowa1[,1], freq = slowa1[,3], random.order = FALSE, colors=brewer.pal(8, "Accent"))
+   },
+   
+   height = 700, width = 800
+   )
 }
 
 # Run the application 
