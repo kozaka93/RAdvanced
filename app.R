@@ -17,6 +17,9 @@ library(igraph)
 
 # Define UI for application that draws a histogram
 ui <- navbarPage("Analiza",
+                 tabPanel("Wstęp",
+                          includeMarkdown("wstep.Rmd")
+                 ),
                  tabPanel("Tab1",
                           sidebarLayout(
                             sidebarPanel(
@@ -128,13 +131,13 @@ server <- function(input, output) {
    output$igraf1 <- renderPlot({
      df1 <- autor_funkcja[autor_funkcja$autor==input$autor_1 | autor_funkcja$autor==input$autor_2,]
      igraf_1 <- graph_from_edgelist(as.matrix(df1), directed = TRUE) 
-     plot(igraf_1, edge.arrow.size=.5, vertex.color="steelblue1", vertex.size=10, 
+     plot(igraf_1, edge.width =1 ,edge.arrow.size=.5, vertex.color="steelblue1", vertex.size=5, 
           
-          vertex.frame.color="gray88", vertex.label.color="black", 
+          edge.arrow.size=0.5, vertex.frame.color="gray88", vertex.label.color="black", 
           
-          vertex.label.cex=1, vertex.label.dist=2, edge.curved=0.2)
+          vertex.label.cex=0.75, vertex.label.dist=1, edge.curved=0.2)
    },
-   height = 700, width = 800)
+   height = 1000, width = 1000)
 }
 
 # Run the application 
