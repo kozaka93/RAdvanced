@@ -1,0 +1,34 @@
+---
+output: html_document
+---
+
+
+## Wizualizacja wyników dotyczących projektu 1 z przedmiotu Programowanie i analiza danych w R dla zaawansowanych.
+
+*Anna Gierlak, Anna Kozak, Kamil Romaszko*
+
+*18 kwietnia 2018*
+
+Celem projektu było zebranie z różnych źródeł skryptów R od różnych autorów oraz wykonanie analizy. Skrypyt dzielimi na dwie kategorie: A - która dotyczyła analizy dla skryptów pochodzących z pakietów, natomiast B - analizy skryptów, analiz oraz raportów.
+
+Opis źródła oraz zebrane dane znajdują się w zakładce więcej *Dane*.
+
+W poszczególnych zakładach aplikacji możemy wyróżnić następujące analizy:
+
+## Kategoria A:
+
+- wykres zawierający częstość używanych pakietów przez wszystkich autorów
+
+- wykres zawierający częstość używanych funkcji przez wszystkich autorów
+
+- graf zależności pomiędzy dwoma autorami, porównanie używanych przez nich pakietów
+
+- graf zależności pomiędzy dwoma autorami, porównanie używanych przez nich funkcji
+
+- ...
+
+## Kategoria B:
+
+- ...
+
+O autorach analizy w zakładce więcej *Autorzy*.

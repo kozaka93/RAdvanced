@@ -1,0 +1,12 @@
+---
+
+output: html_document
+---
+
+## Autorzy
+- Anna Gierlak, *SMAD, I rok*
+- Anna Kozak, *SMAD, I rok*
+- Kamil Romaszko, *PiAD, II rok*
+
+Politechnika Warszawska
+Wydział Matematyki i Nauk Informacyjnych
