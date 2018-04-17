@@ -3,32 +3,52 @@ output: html_document
 ---
 
 
-## Wizualizacja wyników dotyczących projektu 1 z przedmiotu Programowanie i analiza danych w R dla zaawansowanych.
+# <span style="color:rgb(129,15,50)"><font face="comic sans ms">**Programowanie i analiza danych w R dla zaawansowanych**</font></span>
 
-*Anna Gierlak, Anna Kozak, Kamil Romaszko*
+# <span style="color:rgb(129,15,50)"><font face="comic sans ms">**Projekt nr 1**</font></span>
 
-*18 kwietnia 2018*
 
-Celem projektu było zebranie z różnych źródeł skryptów R od różnych autorów oraz wykonanie analizy. Skrypyt dzielimi na dwie kategorie: A - która dotyczyła analizy dla skryptów pochodzących z pakietów, natomiast B - analizy skryptów, analiz oraz raportów.
+  *Anna Gierlak*, *Anna Kozak*, *Kamil Romaszko*
+  
 
-Opis źródła oraz zebrane dane znajdują się w zakładce więcej *Dane*.
+  *18 kwietnia 2018*
 
-W poszczególnych zakładach aplikacji możemy wyróżnić następujące analizy:
 
-## Kategoria A:
 
-- wykres zawierający częstość używanych pakietów przez wszystkich autorów
 
-- wykres zawierający częstość używanych funkcji przez wszystkich autorów
+  Celem projektu było zebranie z różnych źródeł skryptów R od różnych autorów oraz wykonanie analizy. Skrypty te podzielone zostały na dwie kategorie:
 
-- graf zależności pomiędzy dwoma autorami, porównanie używanych przez nich pakietów
+A - kody instrukcji R dla pakietów,
 
-- graf zależności pomiędzy dwoma autorami, porównanie używanych przez nich funkcji
+B - kody instrukcji R dla skryptów, analiz oraz raportów.
 
-- ...
+Opis wykorzystanych źródeł oraz zebranych danych znajduje się w zakładce: *więcej* -> *Dane*.
 
-## Kategoria B:
+W poszczególnych zakładkach aplikacji dostępne są następujące analizy przeprowadzone na zgromadzonych danych:
 
-- ...
+### Kategoria A:
 
-O autorach analizy w zakładce więcej *Autorzy*.
+- *A Tab1* - wykresy przedstawiające częstotliwości używania poszczególnych pakietów oraz funkcji przez analizowanych autorów
+
+- *A Tab2* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
+
+- *A Tab3* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
+
+
+### Kategoria B:
+
+- *B Tab1* - wykresy przedstawiające częstotliwości używania poszczególnych pakietów oraz funkcji przez analizowanych autorów
+
+- *B Tab2* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
+
+- *B Tab3* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
+
+
+### Porównanie kategorii A i B:
+
+- *A B Tab1* - zestawienie najpopularniejszych funkcji używanych w obu kategoriach
+
+- *A B Tab2* - zestawienie najpopularniejszych pakietów używanych w obu kategoriach
+
+
+  Więcej o autorach projektu w zakładce: *więcej* -> *Autorzy*.
