@@ -3,9 +3,9 @@ output: html_document
 ---
 
 
-# <span style="color:rgb(129,15,50)"><font face="comic sans ms">**Programowanie i analiza danych w R dla zaawansowanych**</font></span>
+# <span style="color:rgb(129,15,50)">**Programowanie i analiza danych w R dla zaawansowanych**</span>
 
-# <span style="color:rgb(129,15,50)"><font face="comic sans ms">**Projekt nr 1**</font></span>
+# <span style="color:rgb(129,15,50)">**Projekt nr 1**</span>
 
 
   *Anna Gierlak*, *Anna Kozak*, *Kamil Romaszko*
@@ -28,27 +28,28 @@ W poszczególnych zakładkach aplikacji dostępne są następujące analizy prze
 
 ### Kategoria A:
 
-- *A Tab1* - wykresy przedstawiające częstotliwości używania poszczególnych pakietów oraz funkcji przez analizowanych autorów
+- *A - Graf pakietów* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
 
-- *A Tab2* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
-
-- *A Tab3* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
+- *A - Graf funkcji* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
 
 
 ### Kategoria B:
 
-- *B Tab1* - wykresy przedstawiające częstotliwości używania poszczególnych pakietów oraz funkcji przez analizowanych autorów
+- *B - Graf pakietów* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
 
-- *B Tab2* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
-
-- *B Tab3* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
+- *B - Graf funkcji* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
 
 
 ### Porównanie kategorii A i B:
 
-- *A B Tab1* - zestawienie najpopularniejszych funkcji używanych w obu kategoriach
+- *AB - Pakiety* - zestawienie najpopularniejszych funkcji używanych w obu kategoriach
 
-- *A B Tab2* - zestawienie najpopularniejszych pakietów używanych w obu kategoriach
+- *AB - Funkcje* - zestawienie najpopularniejszych pakietów używanych w obu kategoriach
+
+- *Pakiety - chmury słów* - wykresy przedstawiające częstotliwości używania poszczególnych pakietów oraz funkcji przez analizowanych autorów w postaci chmury słów
+
+- *Funkcje - chmury słów* - wykresy przedstawiające częstotliwości używania poszczególnych funkcji przez analizowanych autorów w postaci chmury słów
+
 
 
   Więcej o autorach projektu w zakładce: *więcej* -> *Autorzy*.

@@ -23,99 +23,79 @@ library(RColorBrewer)
 library(igraph)
 library(dplyr)
 library(ggplot2)
+library(gridExtra)
 # Define UI for application that draws a histogram
-ui <- navbarPage("Analiza",
+ui <- navbarPage("Analiza kodów źródłowych R", header = tags$head(tags$style(HTML("
+                            .col-sm-8 {
+                              width: 100%;
+                            }
+
+                            "))),
                  tabPanel("Wstęp",
                           includeMarkdown("wstep.Rmd")
                           #includeMarkdown("wstep.Rmd")
                  ),
-                 tabPanel("A Tab1",
-                          splitLayout(
-                            fluidRow(
-                              column(width = 12, sliderInput("ile",
-                                                             "Maksymalna liczba słów:",
-                                                             min=1, max=340, value=100)),
-                              column(width = 12,plotOutput("plot",  width = "80%", height = "600px"))),
-                            fluidRow(
-                              column(width = 12, sliderInput("ile1", 
-                                                             "Maksymalna liczba słów:",
-                                                             min=1, max=244, value=100)),
-                              column(width = 12,plotOutput("plot1", width = "80%", height = "600px")))
-                            
-                          )
-                          
-                          
-                          
-                 ),
-                 tabPanel("A Tab2",
-                          sidebarLayout(
-                            sidebarPanel(
-                              selectInput("autor1", "Wybierz autora 1:", unique(autor_pakiet$autor)),
+                
+                 tabPanel("A - Graf pakietów",
+                          headerPanel("Graf wykorzystywanych pakietów przez autorów"),
+                          column(3,
+                              selectInput("autor1", "Wybierz autora 1:", unique(autor_pakiet$autor))
+                              ),
                               #selectInput("autor2", "wybierz autora 2:", unique(autor_pakiet[autor_pakiet$autor!=input$autor1,1]))
-                              uiOutput("secondSelection")
+                          column(3,  
+                                 uiOutput("secondSelection")
                             ),
                             mainPanel(plotOutput("igraf",  width = "100%"))
-                          )
+    
                           
                  ),
-                 tabPanel("A Tab3",
-                          sidebarLayout(
-                            sidebarPanel(
-                              selectInput("autor_1", "Wybierz autora 1:", unique(autor_funkcja$autor)),
+                 tabPanel("A - Graf funkcji",
+                          headerPanel("Graf wykorzystywanych funkcji przez autorów"),
+                            column(3,
+                              selectInput("autor_1", "Wybierz autora 1:", unique(autor_funkcja$autor))
                               #selectInput("autor2", "wybierz autora 2:", unique(autor_pakiet[autor_pakiet$autor!=input$autor1,1]))
-                              uiOutput("secondSelection1")
+                            ),
+                              column(3,
+                                uiOutput("secondSelection1")
                             ),
                             mainPanel(plotOutput("igraf1",  width = "100%"))
-                          )
-                          
-                          
-                 ),
-                 
-                 ####
-                 tabPanel("B Tab1",
-                          splitLayout(
-                            fluidRow(
-                              column(width = 12, sliderInput("ileB",
-                                                             "Maksymalna liczba słów:",
-                                                             min=1, max=340, value=100)),  ### MIN I MAX ZMIENIC
-                              column(width = 12,plotOutput("plotB",  width = "80%", height = "600px"))),
-                            fluidRow(
-                              column(width = 12, sliderInput("ile1B", 
-                                                             "Maksymalna liczba słów:",
-                                                             min=1, max=244, value=100)), ## MIN I MAX ZMIENIC
-                              column(width = 12,plotOutput("plot1B", width = "80%", height = "600px")))
-                            
-                          )
-                          
-                          
                           
                  ),
                  
                  
-                 tabPanel("B Tab2",
-                          sidebarLayout(
-                            sidebarPanel(
-                              selectInput("autor1B", "Wybierz autora 1:", unique(autor_pakiet_B$Author)),
+                 tabPanel("B - Graf pakietów",
+                          headerPanel("Graf wykorzystywanych pakietów przez autorów"),
+                          column(3,
+                              selectInput("autor1B", "Wybierz autora 1:", unique(autor_pakiet_B$Author))
+                          ),
+                          column(3,
                               #selectInput("autor2", "wybierz autora 2:", unique(autor_pakiet[autor_pakiet$autor!=input$autor1,1]))
                               uiOutput("secondSelectionB")
                             ),
                             mainPanel(plotOutput("igrafB",  width = "100%"))
-                          )
-                          
                  ),
-                 tabPanel("B Tab3",
-                          sidebarLayout(
-                            sidebarPanel(
-                              selectInput("autor_1B", "Wybierz autora 1:", unique(autor_funkcja_B$Author)),
+                 tabPanel("B - Graf funkcji",
+                          headerPanel("Graf wykorzystywanych funkcji przez autorów"),
+                          column(3,
+                              selectInput("autor_1B", "Wybierz autora 1:", unique(autor_funkcja_B$Author))
+                          ),
+                          column(3,
                               #selectInput("autor2", "wybierz autora 2:", unique(autor_pakiet[autor_pakiet$autor!=input$autor1,1]))
                               uiOutput("secondSelection1B")
                             ),
                             mainPanel(plotOutput("igraf1B",  width = "100%"))
-                          )
-                          
                           
                  ),
-                 tabPanel("A B Tab1",
+                 tabPanel("AB - Pakiety",
+                          sidebarLayout(
+                            sidebarPanel(
+                              sliderInput("top_p", "Top pakiety:", min=1, max=50, value=10)
+                              
+                            ),
+                            mainPanel(plotOutput("plot_p_top",  width = "100%",height = "600px"))
+                          )
+                 ),
+                 tabPanel("AB - Funkcje",
                           sidebarLayout(
                             sidebarPanel(
                               sliderInput("top_f", "Top funkcje:", min=1, max=50, value=10)
@@ -126,14 +106,45 @@ ui <- navbarPage("Analiza",
                  ),
                  
                  
-                 tabPanel("A B Tab2",
-                          sidebarLayout(
-                            sidebarPanel(
-                              sliderInput("top_p", "Top pakiety:", min=1, max=50, value=10)
-                              
-                            ),
-                            mainPanel(plotOutput("plot_p_top",  width = "100%",height = "600px"))
+                
+                 ####
+                 tabPanel("Pakiety - chmury słów",
+                          splitLayout(
+                            fluidRow(
+                              headerPanel("Kategoria A"),
+                              column(width = 12, sliderInput("ile1",
+                                                             "Maksymalna liczba słów:",
+                                                             min=1, max=200, value=100)),  ### MIN I MAX ZMIENIC
+                              column(width = 12,plotOutput("plot1",  width = "80%", height = "600px"))),
+                            fluidRow(
+                              headerPanel("Kategoria B"),
+                              column(width = 12, sliderInput("ile1B", 
+                                                             "Maksymalna liczba pakietów:",
+                                                             min=1, max=200, value=100)),
+                              column(width = 12,plotOutput("plot1B", width = "80%", height = "600px")))
+                            
                           )
+                 ),
+                 
+                 tabPanel("Funkcje - chmury słów",
+                          splitLayout(
+                            fluidRow(
+                              headerPanel("Kategoria A"),
+                              column(width = 12, sliderInput("ile",
+                                                             "Maksymalna liczba funkcji:",
+                                                             min=1, max=300, value=100)),
+                              column(width = 12,plotOutput("plot",  width = "80%", height = "600px"))),
+                            fluidRow(
+                              headerPanel("Kategoria B"),
+                              column(width = 12, sliderInput("ileB", 
+                                                             "Maksymalna liczba słów:",
+                                                             min=1, max=300, value=100)), ## MIN I MAX ZMIENIC
+                              column(width = 12,plotOutput("plotB", width = "80%", height = "600px")))
+                            
+                          )
+                          
+                          
+                          
                  ),
                  
                  navbarMenu("więcej",
@@ -273,19 +284,34 @@ server <- function(input, output) {
   
   output$plot_f_top <- renderPlot({
     
-    razem_top_f <- razem_f %>%
-      group_by(kategoria) %>%
-      top_n(input$top_f, czestosc) %>%
-      ungroup() %>%
-      arrange(kategoria, -czestosc)
+    razem_top_f_a <- razem_f %>%
+      filter(kategoria == "A") %>%
+      arrange(kategoria, -czestosc) %>%
+      top_n(input$top_f, czestosc)
     
-    razem_top_f %>%
+    razem_top_f_b <- razem_f %>%
+      filter(kategoria == "B") %>%
+      arrange(kategoria, -czestosc) %>%
+      top_n(input$top_f, czestosc)
+      
+    print(razem_top_f_b[1:20,])
+    par(mfrow=c(2,1))
+    razem_top_f_a %>%
       mutate(funkcja = reorder(funkcja, czestosc)) %>%
       ggplot(aes(funkcja, czestosc, fill = factor(kategoria))) +
-      geom_col(show.legend = FALSE) +
+      geom_bar(stat='identity', show.legend = FALSE) +
       facet_wrap(~ kategoria, scales = "free") +
       coord_flip() +
-      theme(text = element_text(size=15))
+      theme(text = element_text(size=15)) -> plot_f_a
+    razem_top_f_b %>%
+      mutate(funkcja = reorder(funkcja, czestosc)) %>%
+      ggplot(aes(funkcja, czestosc, fill = as.numeric(factor(kategoria)) )) +
+      geom_bar(stat='identity', show.legend = FALSE) +
+      facet_wrap(~ kategoria, scales = "free") +
+      coord_flip() +
+      theme(text = element_text(size=15))-> plot_f_b
+    
+    grid.arrange(plot_f_a, plot_f_b, ncol=2)
     
   })
   
@@ -293,19 +319,30 @@ server <- function(input, output) {
   
   output$plot_p_top <- renderPlot({
     
-    razem_top_b <- razem_b %>%
-      group_by(kategoria) %>%
-      top_n(input$top_p, czestosc) %>%
-      ungroup() %>%
-      arrange(kategoria, -czestosc)
+    razem_top_b_a <- razem_b %>%
+      filter(kategoria == "A") %>%
+      arrange(kategoria, -czestosc) %>%
+      top_n(input$top_p, czestosc)
     
-    razem_top_b %>%
-      mutate(biblioteka = reorder(biblioteka, czestosc)) %>%
-      ggplot(aes(biblioteka, czestosc, fill = factor(kategoria))) +
+    razem_top_b_b <- razem_b %>%
+      filter(kategoria == "B") %>%
+      arrange(kategoria, -czestosc) %>%
+      top_n(input$top_p, czestosc)
+    
+    razem_top_b_a %>%
+      mutate(pakiet = reorder(biblioteka, czestosc)) %>%
+      ggplot(aes(pakiet, czestosc, fill = factor(kategoria))) +
       geom_col(show.legend = FALSE) +
-      facet_wrap(~ kategoria, scales = "free") +
       coord_flip() +
-      theme(text = element_text(size=15))
+      theme(text = element_text(size=15)) -> plot_b_a
+    
+    razem_top_b_b %>%
+      mutate(pakiet = reorder(biblioteka, czestosc)) %>%
+      ggplot(aes(pakiet, czestosc, fill = as.numeric(factor(kategoria)))) +
+      geom_col(show.legend = FALSE) +
+      coord_flip() +
+      theme(text = element_text(size=15)) -> plot_b_b
+    grid.arrange(plot_b_a, plot_b_b, ncol=2)
   })
 }
 
