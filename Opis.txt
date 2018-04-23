@@ -1,0 +1,7 @@
+Autorzy:
+
+* Anna Gierlak
+* Anna Kozak
+* Kamil Romaszko
+
+Link do aplikacji Rshiny: https://annakozak.shinyapps.io/Projekt_1_AG_AK_KR/
