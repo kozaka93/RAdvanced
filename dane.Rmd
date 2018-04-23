@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-# <span style="color:rgb(129,15,50)"><font face="comic sans ms">**Dane**</font></span>
+# <span style="color:rgb(129,15,50)">**Dane**</span>
 
 W przeprowadzonej analizie wykorzystane zostały różne kody instrukcji R pochodzące od różnych autorów. W obrębie kategorii A (kody R dla pakietów) pobranych zostało około 400 pierwszych (pierwszych pod względem porządku alfabetycznego) bibliotek ze strony [https://bioconductor.org/](https://bioconductor.org/). Natomiast w celach analizy plików z kategorii B (kody R dla skryptów/analiz/raportów) rozpatrzono autorów ze strony [https://github.com/search?l=&q=language%3AR&type=Users](https://github.com/search?l=&q=language%3AR&type=Users) (pierwsze 10 stron) oraz pobrano ich wszystkie repozytoria z [https://github.com/](https://github.com/) niebędące pakietami.
 

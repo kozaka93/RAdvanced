@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-# <span style="color:rgb(129,15,50)"><font face="comic sans ms">**Autorzy**</font></span>
+# <span style="color:rgb(129,15,50)">**Autorzy**</span>
 
 - Anna Gierlak - *SMAD, I rok*
 - Anna Kozak - *SMAD, I rok*
