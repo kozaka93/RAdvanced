@@ -294,7 +294,6 @@ server <- function(input, output) {
       arrange(kategoria, -czestosc) %>%
       top_n(input$top_f, czestosc)
       
-    print(razem_top_f_b[1:20,])
     par(mfrow=c(2,1))
     razem_top_f_a %>%
       mutate(funkcja = reorder(funkcja, czestosc)) %>%
