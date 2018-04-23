@@ -1,0 +1,16 @@
+Autorzy:
+
+* Anna Gierlak
+* Anna Kozak
+* Kamil Romaszko
+
+Link do aplikacji RShiny: https://annakozak.shinyapps.io/Projekt_1_AG_AK_KR/
+
+Pliki do scrapowanie danych:
+* analiza.R
+
+
+Pliki do analizy:
+* analiza.R
+* pakiety_autorzy_pakiety.R
+* uzyte_funkcje.R

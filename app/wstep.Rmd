@@ -1,0 +1,55 @@
+---
+output: html_document
+---
+
+
+# <span style="color:rgb(129,15,50)">**Programowanie i analiza danych w R dla zaawansowanych**</span>
+
+# <span style="color:rgb(129,15,50)">**Projekt nr 1**</span>
+
+
+  *Anna Gierlak*, *Anna Kozak*, *Kamil Romaszko*
+  
+
+  *18 kwietnia 2018*
+
+
+
+
+  Celem projektu było zebranie z różnych źródeł skryptów R od różnych autorów oraz wykonanie analizy. Skrypty te podzielone zostały na dwie kategorie:
+
+A - kody instrukcji R dla pakietów,
+
+B - kody instrukcji R dla skryptów, analiz oraz raportów.
+
+Opis wykorzystanych źródeł oraz zebranych danych znajduje się w zakładce: *więcej* -> *Dane*.
+
+W poszczególnych zakładkach aplikacji dostępne są następujące analizy przeprowadzone na zgromadzonych danych:
+
+### Kategoria A:
+
+- *A - Graf pakietów* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
+
+- *A - Graf funkcji* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
+
+
+### Kategoria B:
+
+- *B - Graf pakietów* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich pakietów
+
+- *B - Graf funkcji* - grafy zależności pomiędzy wybranymi autorami w kontekście wykorzystywanych przez nich funkcji
+
+
+### Porównanie kategorii A i B:
+
+- *AB - Pakiety* - zestawienie najpopularniejszych funkcji używanych w obu kategoriach
+
+- *AB - Funkcje* - zestawienie najpopularniejszych pakietów używanych w obu kategoriach
+
+- *Pakiety - chmury słów* - wykresy przedstawiające częstotliwości używania poszczególnych pakietów oraz funkcji przez analizowanych autorów w postaci chmury słów
+
+- *Funkcje - chmury słów* - wykresy przedstawiające częstotliwości używania poszczególnych funkcji przez analizowanych autorów w postaci chmury słów
+
+
+
+  Więcej o autorach projektu w zakładce: *więcej* -> *Autorzy*.

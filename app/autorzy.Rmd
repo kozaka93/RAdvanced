@@ -1,0 +1,11 @@
+---
+output: html_document
+---
+
+# <span style="color:rgb(129,15,50)"><font face="comic sans ms">**Autorzy**</font></span>
+
+- Anna Gierlak - *SMAD, I rok*
+- Anna Kozak - *SMAD, I rok*
+- Kamil Romaszko - *PiAD, II rok*
+
+Politechnika Warszawska, Wydział Matematyki i Nauk Informacyjnych
